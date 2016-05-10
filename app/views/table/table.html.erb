@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Table</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    .textarea {
+    overflow-y: scroll;
+    resize: none; 
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {
+      height: 700px;
+    }
+
+    .main-table {
+      background-color: green;
+      height: 600px;
+    }
+
+    .my-hands {
+      background-color: black;
+      height: 100px;
+      position: relative;
+      left:20%;
+    }
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 104%;
+    }
+
+    .playing-button{
+      border: 2px solid gray;
+      width: 150px;
+    }
+
+    .score {
+        position: relative;
+  bottom: 10px;
+    border: none;
+    background-color: green;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18xpx;
+    line-height: 9px;
+}
+
+    .ace_of_clubs{
+width: 60px;
+height: 85px;
+border: 1px;
+border-radius: 5px;
+background-image: url('/assets/cards/ace_of_clubs.png');
+background-size: contain;
+}
+
+    .ace_of_hearts{
+width: 60px;
+height: 85px;
+border: 1px;
+border-radius: 5px;
+background-image: url('/assets/cards/ace_of_hearts.png');
+background-size: contain;
+}
+
+    .card{
+    width: 60px;
+height: 85px;
+border: 1px;
+border-radius: 5px;
+background-color: green;
+background-size: contain;
+border-color: white;
+}
+
+    .card-black{
+    width: 60px;
+height: 85px;
+border: 1px;
+border-radius: 5px;
+background-color: black;
+background-size: contain;
+border-color: white;
+}
+
+.my-cards{
+  position: relative;
+  left:55%;
+}
+
+.second-cards{
+  position: relative;
+  left:55%;
+}
+
+.first-cards{
+  position: relative;
+}
+
+.third-cards{
+  position: relative;
+  left: 60%;
+}
+
+.table-cards{
+
+  position: relative;
+  left: 38%;
+
+}
+
+.btn-space {
+    margin-right: 20px;
+}
+  
+    body {
+      background-color: black;
+    }
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Lobby</a></li>
+        <li><a href="#">Leave</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-9">
+
+      <div class="row main-table">
+        
+        <div class="row">
+
+          <div class="col-sm-9">
+
+            <div class="container">
+
+              <table class="second-cards">
+                <tr>
+                  <th colspan="2"><center><h4>Second Player</h4></center></th>
+                </tr>
+                <tr height= "85px">
+                  <td align="right"><div class="panel panel-default"><img id="myHand-firstCard" class="img-thumbnail card"></div></td>
+                  <td align="left"><div class="panel panel-default"><img id="myHand-secondCard" class="img-thumbnail card"></div></td>
+                </tr>
+                <tr>
+                  <td colspan="2"><center><input type="text" class="score" disabled="true" value="$100" maxlength="4" size="4"></center></td>
+                </tr>
+              </table>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="row" style="margin-top:20px">
+        <br><br>
+          <div class="col-sm-9">
+
+            <div class="col-sm-1">
+              
+              <div class="container">
+
+
+              <table class="first-cards">
+                <tr>
+                  <th colspan="2"><center><h4>First Player</h4></center></th>
+                </tr>
+                <tr height= "85px">
+                  <td align="right"><div class="panel panel-default"><img id="myHand-firstCard" class="img-thumbnail card"></div></td>
+                  <td align="left"><div class="panel panel-default"><img id="myHand-secondCard" class="img-thumbnail card"></div></td>
+                </tr>
+                <tr>
+                  <td colspan="2"><center><input type="text" class="score" disabled="true" value="$100" maxlength="4" size="4"></center></td>
+                </tr>
+              </table>
+
+              </div>
+
+            </div>
+
+            <div class="col-sm-5">
+              
+              <div class="container">
+
+
+              <table class="table-cards">
+                <tr>
+                  <th colspan="5"><center><h4>Table Cards</h4></center></th>
+                </tr>
+                <tr height= "85px">
+                  <td align="right"><div class="panel panel-default"><img id="table-firstCard" class="img-thumbnail card"></div></td>
+                  <td align="left"><div class="panel panel-default"><img id="table-secondCard" class="img-thumbnail card"></div></td>
+                  <td align="left"><div class="panel panel-default"><img id="table-thirdCard" class="img-thumbnail card"></div></td>
+                  <td align="left"><div class="panel panel-default"><img id="table-fourthCard" class="img-thumbnail card"></div></td>
+                  <td align="left"><div class="panel panel-default"><img id="table-fifthCard" class="img-thumbnail card"></div></td>
+                </tr>
+                <tr>
+                  <td colspan="5"><center><input type="text" class="score" name="score" disabled="true" value="$100" maxlength="4" size="4"></center></td>
+                </tr>
+              </table>
+
+              </div>
+
+            </div>
+
+
+            <div class="col-sm-2">
+              
+              <div class="container">
+
+
+              <table class="third-cards">
+                <tr>
+                  <th colspan="2"><center><h4>Third Player</h4></center></th>
+                </tr>
+                <tr height= "85px">
+                  <td align="right"><div class="panel panel-default"><img id="myHand-firstCard" class="img-thumbnail card"></div></td>
+                  <td align="left"><div class="panel panel-default"><img id="myHand-secondCard" class="img-thumbnail card"></div></td>
+                </tr>
+                <tr>
+                  <td colspan="2"><center><input type="text" class="score" disabled="true" value="$100" maxlength="4" size="4"></center></td>
+                </tr>
+              </table>
+
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="row"  style="margin-top: 50px;">
+
+          <div class="col-sm-9">
+
+            <div class="container">
+
+              <table class="my-cards">
+                <tr>
+                  <th colspan="2"><center><h4>Your Hand</h4></center></th>
+                </tr>
+                <tr height= "85px">
+                  <td align="right"><div class="panel panel-default"><img id="myHand-firstCard" class="img-thumbnail card"></div></td>
+                  <td align="left"><div class="panel panel-default"><img id="myHand-secondCard" class="img-thumbnail card"></div></td>
+                </tr>
+                <tr>
+                  <td colspan="2"><center><input type="text" class="score" disabled="true" value="$100" maxlength="4" size="4"></center></td>
+                </tr>
+              </table>
+
+              <div id="raise-bet"class="collapse">
+                <form role="form">
+                  <div class="form-group">
+                    <label style="color: white">Enter your bet:</label>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="raiseAmount" maxlength="4" size="4">
+                  </div>
+                  <div class="form-group">
+                  <button type="submit" class="btn btn-default">Submit</button>
+                  </div>
+                </form>
+              </div> 
+              
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="row" style="background-color: black">
+
+        <div class="col-sm-9">
+          
+          <table class="my-hands">
+            <tr>
+                </tr>
+                <tr height= "85px">
+                  <td style="padding: 20px 20px 0px 0px;"><div class="panel panel-default"><img id="my-hand-firstCard" class="img-thumbnail card-black"></div></td>
+                  <td style="padding: 20px 40px 0px 0px;"><div class="panel panel-default"><img id="my-hand-secondCard" class="img-thumbnail card-black"></div></td>
+
+                  <td style="padding: 0px 20px 0px 60px;"><button type="button" class="btn-primary btn-lg playing-button">
+                    <span class="glyphicon glyphicon-thumbs-down"></span>   Fold</button></td>
+
+                  <td style="padding: 0px 20px 0px 20px;"><button type="button" class="btn-primary btn-lg playing-button">
+                    <span class="glyphicon glyphicon-thumbs-up"></span>   check</button></td>
+
+                  <td style="padding: 0px 20px 0px 20px;"><button type="button" class="btn-primary btn-lg playing-button">
+                    <span class="glyphicon glyphicon-hand-up"></span>   call</button></td>
+
+                  <td style="padding: 0px 20px 0px 20px;"><button type="button" class="btn-primary btn-lg playing-button" data-toggle="collapse" data-target="#raise-bet">
+                    <span class="glyphicon glyphicon-circle-arrow-up"></span>Raise</button></td>
+              </table>
+        </div>
+        
+      </div>
+
+    </div>
+    <div class="col-sm-3 sidenav">
+
+        <label for="comment">Chat</label>
+        <textarea class="form-control textarea" rows="27" id="chat"></textarea>
+
+          <div class="dropdown" style="margin-top: 30px;">
+    <button class="btn btn-default dropdown-toggle" type="button" id="chatMessage" data-toggle="dropdown">Your Message
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Nice Hand</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Good luck</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Lucky!</a></li>
+    </ul>
+    <button type="submit" class="btn btn-default">Submit</button>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Copyright (C) 667GRP4</p>
+</footer>
+
+</body>
+</html>
