@@ -25,15 +25,17 @@
     }
 
     .main-table {
+      margin-left: 2px;
       background-color: green;
       height: 600px;
+      width: 100%;
     }
 
     .my-hands {
       background-color: black;
-      height: 100px;
+      height: 140px;
       position: relative;
-      left:20%;
+      left:15%;
     }
     
     /* Set gray background color and 100% height */
@@ -60,28 +62,11 @@
     line-height: 9px;
 }
 
-    .ace_of_clubs{
-width: 60px;
-height: 85px;
-border: 1px;
-border-radius: 5px;
-background-image: url('/assets/cards/ace_of_clubs.png');
-background-size: contain;
-}
-
-    .ace_of_hearts{
-width: 60px;
-height: 85px;
-border: 1px;
-border-radius: 5px;
-background-image: url('/assets/cards/ace_of_hearts.png');
-background-size: contain;
-}
-
     .card{
     width: 60px;
 height: 85px;
 border: 1px;
+border-style: groove;
 border-radius: 5px;
 background-color: green;
 background-size: contain;
@@ -93,40 +78,48 @@ border-color: white;
 height: 85px;
 border: 1px;
 border-radius: 5px;
+border-style: groove;
 background-color: black;
 background-size: contain;
 border-color: white;
 }
 
-.my-cards{
+.your-cards{
   position: relative;
   left:55%;
+  margin-top: 10px;
+  margin-bottom: -10px;
 }
 
 .second-cards{
   position: relative;
   left:55%;
+  margin-top: -20px;
+  margin-bottom: -20px;
 }
 
 .first-cards{
+  margin-top: -20px;
+  margin-bottom: -20px;
   position: relative;
 }
 
 .third-cards{
   position: relative;
-  left: 60%;
+  left: 59%;
+  margin-top: -20px;
+  margin-bottom: -20px;
 }
 
 .table-cards{
 
+  margin-top: -20px;
+  margin-bottom: -20px;
   position: relative;
-  left: 38%;
+  left: 44%;
 
 }
 
-.btn-space {
-    margin-right: 20px;
-}
   
     body {
       background-color: black;
@@ -137,15 +130,7 @@ border-color: white;
       color: white;
       padding: 15px;
     }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height:auto;} 
-    }
+
   </style>
 </head>
 <body>
@@ -178,6 +163,7 @@ border-color: white;
 
       <div class="row main-table">
         
+        <!-- Second player hands-->
         <div class="row">
 
           <div class="col-sm-9">
@@ -186,28 +172,25 @@ border-color: white;
 
               <table class="second-cards">
                 <tr>
-                  <th colspan="2"><center><h4>Second Player</h4></center></th>
+                  <th colspan="2" id="second-player-name"><center><h4><strong>Second Player</strong></h4></center></th>
                 </tr>
                 <tr height= "85px">
-                  <td align="right"><div class="panel panel-default"><img id="myHand-firstCard" class="img-thumbnail card"></div></td>
-                  <td align="left"><div class="panel panel-default"><img id="myHand-secondCard" class="img-thumbnail card"></div></td>
+                  <td style="padding: 0px 5px 0px 0px;"><div class="panel panel-default"><img id="second-player-firstCard" class="img-thumbnail card"></div></td>
+                  <td style="padding: 0px 0px 0px 0px;"><div class="panel panel-default"><img id="second-player-secondCard" class="img-thumbnail card"></div></td>
                 </tr>
                 <tr>
-                  <td colspan="2"><center><input type="text" class="score" disabled="true" value="$100" maxlength="4" size="4"></center></td>
+                  <td colspan="2"><center><input type="text" id="second-player-score" class="score" disabled="true" value="$100" maxlength="4" size="4"></center></td>
                 </tr>
               </table>
-
-
             </div>
-
           </div>
-
         </div>
 
-        <div class="row" style="margin-top:20px">
+        <div class="row">
         <br><br>
           <div class="col-sm-9">
 
+            <!-- first player hands-->
             <div class="col-sm-1">
               
               <div class="container">
@@ -215,14 +198,14 @@ border-color: white;
 
               <table class="first-cards">
                 <tr>
-                  <th colspan="2"><center><h4>First Player</h4></center></th>
+                  <th colspan="2" id="first-player-name"><center><h4><strong>First Player</strong></h4></center></th>
                 </tr>
                 <tr height= "85px">
-                  <td align="right"><div class="panel panel-default"><img id="myHand-firstCard" class="img-thumbnail card"></div></td>
-                  <td align="left"><div class="panel panel-default"><img id="myHand-secondCard" class="img-thumbnail card"></div></td>
+                  <td style="padding: 0px 5px 0px 0px;"><div class="panel panel-default"><img id="first-player-firstCard" class="img-thumbnail card"></div></td>
+                  <td style="padding: 0px 0px 0px 0px;"><div class="panel panel-default"><img id="first-player-firstCard" class="img-thumbnail card"></div></td>
                 </tr>
                 <tr>
-                  <td colspan="2"><center><input type="text" class="score" disabled="true" value="$100" maxlength="4" size="4"></center></td>
+                  <td colspan="2"><center><input type="text" id="first-player-score" class="score" disabled="true" value="$100" maxlength="4" size="4"></center></td>
                 </tr>
               </table>
 
@@ -230,24 +213,22 @@ border-color: white;
 
             </div>
 
+            <!-- Table Hand -->
             <div class="col-sm-5">
               
               <div class="container">
 
 
               <table class="table-cards">
-                <tr>
-                  <th colspan="5"><center><h4>Table Cards</h4></center></th>
-                </tr>
+                
+                <td colspan="3"><center><h4><strong>Table</strong></h4></center></th>
                 <tr height= "85px">
-                  <td align="right"><div class="panel panel-default"><img id="table-firstCard" class="img-thumbnail card"></div></td>
-                  <td align="left"><div class="panel panel-default"><img id="table-secondCard" class="img-thumbnail card"></div></td>
-                  <td align="left"><div class="panel panel-default"><img id="table-thirdCard" class="img-thumbnail card"></div></td>
-                  <td align="left"><div class="panel panel-default"><img id="table-fourthCard" class="img-thumbnail card"></div></td>
-                  <td align="left"><div class="panel panel-default"><img id="table-fifthCard" class="img-thumbnail card"></div></td>
+                  <td style="padding: 0px 5px 0px 0px;"><div class="panel panel-default"><img id="table-firstCard" class="img-thumbnail card"></div></td>
+                  <td style="padding: 0px 0px 0px 0px;"><div class="panel panel-default"><img id="table-secondCard" class="img-thumbnail card"></div></td>
+                  <td style="padding: 0px 0px 0px 5px;"><div class="panel panel-default"><img id="table-thirdCard" class="img-thumbnail card"></div></td>
                 </tr>
                 <tr>
-                  <td colspan="5"><center><input type="text" class="score" name="score" disabled="true" value="$100" maxlength="4" size="4"></center></td>
+                  <td colspan="3"><center><input type="text" id="total-bet" class="score" name="score" disabled="true" value="$100" maxlength="4" size="4"></center></td>
                 </tr>
               </table>
 
@@ -263,14 +244,14 @@ border-color: white;
 
               <table class="third-cards">
                 <tr>
-                  <th colspan="2"><center><h4>Third Player</h4></center></th>
+                  <th colspan="2"><center><h4><strong>Third Player</strong></h4></center></th>
                 </tr>
                 <tr height= "85px">
-                  <td align="right"><div class="panel panel-default"><img id="myHand-firstCard" class="img-thumbnail card"></div></td>
-                  <td align="left"><div class="panel panel-default"><img id="myHand-secondCard" class="img-thumbnail card"></div></td>
+                  <td style="padding: 0px 5px 0px 0px;"><div class="panel panel-default"><img id="third-player-firstCard" class="img-thumbnail card"></div></td>
+                  <td style="padding: 0px 0px 0px 0px;"><div class="panel panel-default"><img id="third-player-firstCard" class="img-thumbnail card"></div></td>
                 </tr>
                 <tr>
-                  <td colspan="2"><center><input type="text" class="score" disabled="true" value="$100" maxlength="4" size="4"></center></td>
+                  <td colspan="2"><center><input type="text" id="third-player-score" class="score" disabled="true" value="$100" maxlength="4" size="4"></center></td>
                 </tr>
               </table>
 
@@ -283,39 +264,24 @@ border-color: white;
 
         </div>
 
-        <div class="row"  style="margin-top: 50px;">
+        <div class="row">
 
           <div class="col-sm-9">
 
             <div class="container">
 
-              <table class="my-cards">
+              <table class="your-cards">
                 <tr>
-                  <th colspan="2"><center><h4>Your Hand</h4></center></th>
+                  <th colspan="2"><center><h4><strong>Your Hand</strong></h4></center></th>
                 </tr>
                 <tr height= "85px">
-                  <td align="right"><div class="panel panel-default"><img id="myHand-firstCard" class="img-thumbnail card"></div></td>
-                  <td align="left"><div class="panel panel-default"><img id="myHand-secondCard" class="img-thumbnail card"></div></td>
+                  <td style="padding: 0px 5px 0px 0px;"><div class="panel panel-default"><img id="your-hand-firstCard" class="img-thumbnail card"></div></td>
+                  <td style="padding: 0px 0px 0px 0px;"><div class="panel panel-default"><img id="your-hand-firstCard" class="img-thumbnail card"></div></td>
                 </tr>
                 <tr>
-                  <td colspan="2"><center><input type="text" class="score" disabled="true" value="$100" maxlength="4" size="4"></center></td>
+                  <td colspan="2"><center><input type="text" id="your-score" class="score" disabled="true" value="$100" maxlength="4" size="4"></center></td>
                 </tr>
-              </table>
-
-              <div id="raise-bet"class="collapse">
-                <form role="form">
-                  <div class="form-group">
-                    <label style="color: white">Enter your bet:</label>
-                  </div>
-                  <div class="form-group">
-                    <input type="text" id="raiseAmount" maxlength="4" size="4">
-                  </div>
-                  <div class="form-group">
-                  <button type="submit" class="btn btn-default">Submit</button>
-                  </div>
-                </form>
-              </div> 
-              
+              </table>              
             </div>
 
           </div>
@@ -329,8 +295,7 @@ border-color: white;
         <div class="col-sm-9">
           
           <table class="my-hands">
-            <tr>
-                </tr>
+
                 <tr height= "85px">
                   <td style="padding: 20px 20px 0px 0px;"><div class="panel panel-default"><img id="my-hand-firstCard" class="img-thumbnail card-black"></div></td>
                   <td style="padding: 20px 40px 0px 0px;"><div class="panel panel-default"><img id="my-hand-secondCard" class="img-thumbnail card-black"></div></td>
@@ -344,8 +309,22 @@ border-color: white;
                   <td style="padding: 0px 20px 0px 20px;"><button type="button" class="btn-primary btn-lg playing-button">
                     <span class="glyphicon glyphicon-hand-up"></span>   call</button></td>
 
-                  <td style="padding: 0px 20px 0px 20px;"><button type="button" class="btn-primary btn-lg playing-button" data-toggle="collapse" data-target="#raise-bet">
+                  <td style="padding: 0px 80px 0px 20px;"><button type="button" class="btn-primary btn-lg playing-button" data-toggle="collapse" data-target="#raise-bet">
                     <span class="glyphicon glyphicon-circle-arrow-up"></span>Raise</button></td>
+
+                  <td>
+                    <div id="raise-bet"class="collapse">
+                      <form role="form">
+                        <div class="form-group">
+                          <input type="text" id="raiseAmount" maxlength="4" size="4">
+                        </div>
+                        <div class="form-group">
+                          <button type="button" class="btn btn-primary">Bet</button>
+                        </div>
+                      </form>
+                    </div> 
+                  </td>
+                </tr> 
               </table>
         </div>
         
