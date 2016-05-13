@@ -20,7 +20,7 @@ def initialize
 		# 12 is King
 		# 11 is queen
 		# and so on...
-
+        #
 @cards = [[1,2,3,4,5,6,7,8,9,10,11,12,13],[1,2,3,4,5,6,7,8,9,10,11,12,13],[1,2,3,4,5,6,7,8,9,10,11,12,13],[1,2,3,4,5,6,7,8,9,10,11,12,13]];
 
 end
@@ -32,7 +32,7 @@ def setCard
 		card = Array.new(2,0); 
 
 		find = 0;  #find variables initialized with 0
-
+ 
 		while find == 0
 			suit = rand(1...4);   #pick a random no between 1-4 and store it in suit var
 		
