@@ -12,6 +12,8 @@ end
 
 
 def setHands
+   #hands[0] is firstplayer hand
+   #hand[1] is second players hand	
    @hands[0] = Table.setCard  #first [player have two cards on hand i.e [ [twocards], [0,0] ]
    @hands[1] = Table.setCard  #second [player have two cards on hand i.e [ [twocards], [another two cards] ]
 end
