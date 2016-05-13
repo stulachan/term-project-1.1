@@ -1,5 +1,6 @@
 class Table
 
+    #An array that holds all types of ranking of cards
 	@handRanking = ["High-Card", 
 					"One-Pair",
 					"Two-Pair",
@@ -10,32 +11,39 @@ class Table
 					"Four-Of-Kind",
 					"Straight-Flush",
 					"Royal-Flush"];
-	def initialize
+
+#CONSTRUCTOR is called, when we create an object
+def initialize
 
 		# First = Clubs, Second = Diamonds, Third = Hearts, Fourth = Spades
 		# Ace is number 13
+		# 12 is King
+		# 11 is queen
+		# and so on...
 
-		@cards = [[1,2,3,4,5,6,7,8,9,10,11,12,13],[1,2,3,4,5,6,7,8,9,10,11,12,13],[1,2,3,4,5,6,7,8,9,10,11,12,13],[1,2,3,4,5,6,7,8,9,10,11,12,13]];
+@cards = [[1,2,3,4,5,6,7,8,9,10,11,12,13],[1,2,3,4,5,6,7,8,9,10,11,12,13],[1,2,3,4,5,6,7,8,9,10,11,12,13],[1,2,3,4,5,6,7,8,9,10,11,12,13]];
 
-	end
+end
 
 	#Set one card from @cards array
 	def setCard
 
-		card = Array.new(2,0);
+        #This card array can hold only 2 elements initialized with [0,0] 
+		card = Array.new(2,0); 
 
-		find = 0;
+		find = 0;  #find variables initialized with 0
 
 		while find == 0
-			suit = rand(4);
-			rank = rand(13);
-			card[0] = suit;
-			card[1] = @cards[suit,rank];
+			suit = rand(4);   #pick a random no between 1-4 and store it in suit var
+			rank = rand(13);  #pick a random no between 1-13 and store it in rank var
+			card[0] = suit;   #put the suit var as first element in card array 
+
+			card[1] = @cards[suit,rank];  
 			if(card[1] != -1)
 				find == 1;
 		end
 
-		@cards[suit][rank] = -1;
+		@cards[suit][rank] = -1; #if that specific suit and rank was set already, then set it to -1
 
 		return card;
 	end

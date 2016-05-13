@@ -4,7 +4,7 @@ class TableController < ApplicationController
   # GET /posts.json
 
   def index
-
+  
   end
 
   # GET /posts/1
@@ -25,7 +25,7 @@ class TableController < ApplicationController
   # POST /posts.json
   def create
     #@tables = Table.new(params)
-
+    
   end
 
   # PATCH/PUT /posts/1
@@ -39,4 +39,7 @@ class TableController < ApplicationController
   def destroy
 
   end
+
+
+
 end
