@@ -39,7 +39,8 @@ def setCard
 			rank = rand(1...13);  #pick a random no between 1-13 and store it in rank var
 			card[0] = suit;   #put the suit var as first element in card array 
 
-			card[1] = @cards[suit,rank]; #Something is wrong here!! 
+			#card[1] = @cards[suit,rank]; #Something is wrong here!! 
+			card[1] = @cards[suit][rank]; 
 			if(card[1] != -1)
 				find == 1;
 		end
@@ -50,7 +51,7 @@ def setCard
 	end
 end
 
-
+=begin
 
 
 	#Set hands for player and table
@@ -137,7 +138,7 @@ end
 		}				
 
 	end
-
+=end
 
 end
 

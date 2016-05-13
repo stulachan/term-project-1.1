@@ -8,10 +8,10 @@ class TableController < ApplicationController
 
   def table
     #@number_of_users =  User.count
-    #@player = Player.new
-    #@hand1  = @player.setHands
-    @first = rand(1...13)
-    @second = rand(1...4)
+    @player = Player.new
+    @hand1  = @player.setHands
+    @second = @hand1[0]
+    @first = @hand1[1]
   end
 
   # GET /posts/1

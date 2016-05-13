@@ -13,7 +13,7 @@ end
 
 
 def setHands
-   #hands[0] is firstplayer hand
+   #hands is firstplayer hand
    @hands = @table.setCard  #first [player have two cards on hand i.e [first_card,second_card]
    return @hands
 end
