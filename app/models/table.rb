@@ -47,13 +47,15 @@ end
 
 		return card;
 	end
+end	
 
 	#Set hands for player and table
 	# numberOfCard = 2 for player and numberOfCard = 3 for table
 	def setHands(table)
-
+         
+        #This firstCard  array can hold only 2 elements initialized with [0,0]
 		firstCard = Array.new(2,0);
-		firstCard = setCard;
+		firstCard = setCard;  
 		secondCard = Array.new(2,0);
 		secondCard = setCard;
 

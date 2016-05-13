@@ -5,8 +5,9 @@ class PlayerController < ApplicationController
 
    def initialize
    	@number_of_users =  User.count
-   	Players.new(@number_of_users)
-   	Players.setHands
+   	Player.new(@number_of_users)
+   	Table.new.setCard
+   	Player.new.setHands
    end
 
 
