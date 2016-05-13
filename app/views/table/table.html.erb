@@ -175,8 +175,11 @@ border-color: white;
                   <th colspan="2" id="second-player-name"><center><h4><strong>Second Player</strong></h4></center></th>
                 </tr>
                 <tr height= "85px">
-                  <td style="padding: 0px 5px 0px 0px;"><div class="panel panel-default"><img id="second-player-firstCard" class="img-thumbnail card"></div></td>
-                  <td style="padding: 0px 0px 0px 0px;"><div class="panel panel-default"><img id="second-player-secondCard" class="img-thumbnail card"></div></td>
+                  <td style="padding: 0px 5px 0px 0px;"><div class="panel panel-default"> 
+                    <%= image_tag ("/assets/cards/#{@card1_rank_p2}_of_#{@card1_suit_p2}.png") %>
+                  </div></td>
+                  <td style="padding: 0px 0px 0px 0px;"><div class="panel panel-default"> <%= image_tag ("/assets/cards/#{@card2_rank_p2}_of_#{@card2_suit_p2}.png") %>
+                  </div></td>
                 </tr>
                 <tr>
                   <td colspan="2"><center><input type="text" id="second-player-score" class="score" disabled="true" value="$100" maxlength="4" size="4"></center></td>
@@ -204,10 +207,14 @@ border-color: white;
                 <tr height= "85px">
                   <td style="padding: 0px 5px 0px 0px;"><div class="panel panel-default">
                     
-                  <%= image_tag ("/assets/cards/#{@first}_of_#{@second}.png") %>
+                  <%= image_tag ("/assets/cards/#{@card1_rank_p1}_of_#{@card1_suit_p1}.png") %>
                   
                   </div></td>
-                  <td style="padding: 0px 0px 0px 0px;"><div class="panel panel-default"><img id="first-player-firstCard" class="img-thumbnail card"></div></td>
+                  <td style="padding: 0px 0px 0px 0px;"><div class="panel panel-default">
+                    
+                    <%= image_tag ("/assets/cards/#{@card2_rank_p1}_of_#{@card2_suit_p1}.png") %>
+        
+                  </div></td>
                 </tr>
                 <tr>
                   <td colspan="2"><center><input type="text" id="first-player-score" class="score" disabled="true" value="$100" maxlength="4" size="4"></center></td>

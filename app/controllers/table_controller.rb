@@ -2,16 +2,34 @@ class TableController < ApplicationController
 
   # GET /table
   # GET /posts.json
- attr_reader :number_of_users, :hand1
+ attr_reader :number_of_users, :hand1,:hand2
   
   
 
   def table
-    #@number_of_users =  User.count
+    #@number_of_users =  2  #GET THE NUMBER OF USERS LOGGED IN HERE
     @player = Player.new
-    @hand1  = @player.setHands
-    @second = @hand1[0]
-    @first = @hand1[1]
+    @hand1  = @player.setPlayerHand
+
+    #player 1 cards
+    @card1_p1 = @hand1[0][0]
+    @card1_rank_p1 = @card1_p1[1]
+    @card1_suit_p1 = @card1_p1[0]
+    
+    @card2_p1 = @hand1[1][0]
+    @card2_rank_p1 = @card2_p1[1]
+    @card2_suit_p1 = @card2_p1[0]
+  
+    #player 2 cards
+    @card1_p2 = @hand1[2][0]
+    @card1_rank_p2 = @card1_p2[1]
+    @card1_suit_p2 = @card1_p2[0]
+  
+    @card2_p2 = @hand1[3][0]
+    @card2_rank_p2 = @card2_p2[1]
+    @card2_suit_p2 = @card2_p2[0]
+
+
   end
 
   # GET /posts/1
