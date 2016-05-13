@@ -2,9 +2,16 @@ class TableController < ApplicationController
 
   # GET /table
   # GET /posts.json
-
-  def index
+ attr_reader :number_of_users, :hand1
   
+  
+
+  def table
+    #@number_of_users =  User.count
+    #@player = Player.new
+    #@hand1  = @player.setHands
+    @first = rand(1...13)
+    @second = rand(1...4)
   end
 
   # GET /posts/1

@@ -1,5 +1,5 @@
 class Table
-
+    
     #An array that holds all types of ranking of cards
 	@handRanking = ["High-Card", 
 					"One-Pair",
@@ -26,7 +26,7 @@ def initialize
 end
 
 	#Set one card from @cards array
-	def setCard
+def setCard
 
         #This card array can hold only 2 elements initialized with [0,0] 
 		card = Array.new(2,0); 
@@ -34,8 +34,9 @@ end
 		find = 0;  #find variables initialized with 0
 
 		while find == 0
-			suit = rand(4);   #pick a random no between 1-4 and store it in suit var
-			rank = rand(13);  #pick a random no between 1-13 and store it in rank var
+			suit = rand(1...4);   #pick a random no between 1-4 and store it in suit var
+		
+			rank = rand(1...13);  #pick a random no between 1-13 and store it in rank var
 			card[0] = suit;   #put the suit var as first element in card array 
 
 			card[1] = @cards[suit,rank];  
@@ -44,10 +45,13 @@ end
 		end
 
 		@cards[suit][rank] = -1; #if that specific suit and rank was set already, then set it to -1
-
+         
 		return card;
 	end
-end	
+end
+
+
+
 
 	#Set hands for player and table
 	# numberOfCard = 2 for player and numberOfCard = 3 for table
@@ -81,8 +85,8 @@ end
 		cardLen = uniqCards.length;
 
 
-		# It can be High-Card, Straight, Flush, Straight-Flush, Royal-Flush
-		if(cardLen == 5){
+		 It can be High-Card, Straight, Flush, Straight-Flush, Royal-Flush
+		#if(cardLen == 5){
 
 			# Check for Royal-Flush
 			if((max-min) == 4 & max == 13 & suitLen == 1){
@@ -135,8 +139,6 @@ end
 	end
 
 
-
-
-
 end
+
 
