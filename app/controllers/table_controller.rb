@@ -5,6 +5,11 @@ class TableController < ApplicationController
  attr_reader :number_of_users, :hand1,:hand2
   
   
+#Game logic goes in this table method
+  #def table
+  
+
+  #end
 
   def table
     #@number_of_users =  2  #GET THE NUMBER OF USERS LOGGED IN HERE
