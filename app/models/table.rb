@@ -1,7 +1,7 @@
 class Table
     
     #An array that holds all types of ranking of cards
-	@handRanking = ["High-Card", 
+	@@handRanking = ["High-Card", 
 					"One-Pair",
 					"Two-Pair",
 					"Three-Of-Kind",
@@ -51,6 +51,7 @@ def setCard
 	end
 end
 
+
 =begin
 
 
@@ -71,74 +72,82 @@ end
 		}else
 			return firstCard, secondCard;
 	end
-
-	def evalHand (first, second, third, fourth, fifth)
-
-		cardSuit = [first[0], second[0], third[0], fourth[0], fifth[0]];
-		uniqSuit = cardSuit.uniq;
-		suitLen = uniqSuit.length;
-
-		cardNum = [first[1], second[1], third[1], fourth[1], fifth[1]];
-		sortCards = cardNum.sort;
-		min = sortCards.first;
-		max = sortCards.last;
-		uniqCards = cardNum.uniq;
-		cardLen = uniqCards.length;
-
-
-		 It can be High-Card, Straight, Flush, Straight-Flush, Royal-Flush
-		#if(cardLen == 5){
-
-			# Check for Royal-Flush
-			if((max-min) == 4 & max == 13 & suitLen == 1){
-				return "Royal-Flush";
-
-			# Check for Straight-Flush
-			}elsif ((max-min) == 4 & suitLen == 1){
-				return "Straight-Flush";
-			
-			# Check for Flush
-			}elsif (suitLen == 1){
-				return "Flush";
-				
-			}elsif ((max-min) == 4){
-				return "Straight";
-
-			}else
-				return "High-Card";
-			end
-			
-
-		# It's One-Pair
-		}elsif(cardLen == 4){
-			dupArr = cardNum.select{|element| array.count(element) > 1};
-			return "High-Card", dupArr[0];
-
-		
-		# It can be Three-Of-Kind, Two-Pair
-		}elsif (cardLen == 3){
-			dupArr = cardNum.select{|element| array.count(element) > 1};
-			if(dupArr.length == 4)
-				return "Two-Pair";
-			else
-				return "Three-Of-Kind";
-			end
-
-
-		# It can be Full-House, Four-Of-Kind
-		}elsif(cardLen == 2){
-			
-			dupArr = cardNum.select{|element| array.count(element) > 1};
-			if(dupArr.length == 4)
-				return "Four-Of-Kind";
-			else
-				return "Full-House";
-			end
-
-		}				
-
-	end
 =end
+
+    def evalHand (first, second, third, fourth, fifth)
+
+        cardSuit = [first[0], second[0], third[0], fourth[0], fifth[0]];
+        uniqSuit = cardSuit.uniq;
+        suitLen = uniqSuit.length;
+
+        cardNum = [first[1], second[1], third[1], fourth[1], fifth[1]];
+        sortCards = cardNum.sort;
+        min = sortCards.first;
+        max = sortCards.last;
+        uniqCards = cardNum.uniq;
+        cardLen = uniqCards.length;
+
+
+        #It can be High-Card, Straight, Flush, Straight-Flush, Royal-Flush
+        if(cardLen == 5)
+
+            # Check for Royal-Flush
+            if((max-min) == 4 && max == 13 && suitLen == 1)
+                return 9, max;
+
+            # Check for Straight-Flush
+            elsif ((max-min) == 4 && suitLen == 1)
+                return 8, max;
+            
+            # Check for Flush
+            elsif (suitLen == 1)
+                return 5, max;
+                
+            elsif ((max-min) == 4)
+                return 4, max;
+
+            else
+                return 0, max;
+            end
+            
+
+        # It's One-Pair
+        elsif(cardLen == 4)
+            dupArr = cardNum.select{|element| cardNum.count(element) > 1};
+            return 1, dupArr[0];
+
+        
+        # It can be Three-Of-Kind, Two-Pair
+        elsif (cardLen == 3)
+            dupArr = cardNum.select{|element| cardNum.count(element) > 1};
+            if(dupArr.length == 4)
+                return 2, dupArr.max;
+            else
+                return 3, dupArr[0];
+            end
+
+
+        # It can be Full-House, Four-Of-Kind
+        elsif(cardLen == 2)
+            
+            dupArr = cardNum.select{|element| cardNum.count(element) > 1};
+            if(dupArr.length == 4)
+                return 7, dupArr[0];
+            else
+                high = dupArr.select{|element| cardNum.count(element) > 2};
+                return 6, high[0];
+            end
+
+        end              
+
+    end
+
+    def getHandRank(index)
+
+    	return @@handRanking[index];
+    	
+    end
+
 
 end
 
