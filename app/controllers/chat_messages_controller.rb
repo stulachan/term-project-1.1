@@ -11,17 +11,12 @@ def create
 
    Pusher.trigger('chat', 'new_message', { 
    			name: current_user.email,
- 			message: @chat_message.message,
- 			num: Pusher.channel_users('chat')
+ 			message: @chat_message.message
   		}, {
     		socket_id: params[:socket_id]
-
   })
-     
-  	 respond_to :js
 
+  	respond_to :js
 end
-
-
 
 end

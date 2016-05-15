@@ -1,8 +1,8 @@
 class TableController < ApplicationController
-
+ helper_method :determine_hand
   # GET /table
   # GET /posts.json
- attr_reader :number_of_users, :hand1,:hand2, :table1
+  attr_reader :number_of_users, :hand1,:hand2, :table1
 
 #Game logic goes in this table method
   #def table
@@ -19,7 +19,7 @@ class TableController < ApplicationController
     @hand2  = @player2.setPlayerHand
    # @hand3  = @player.setPlayerHand
    # @hand4  = @player.setPlayerHand
-    @table1 = @table_cards.setPlayerHand
+   @table1 = @table_cards.setPlayerHand
 
     #player1 first 2 cards
     @card1_p1 = @hand1[0][0]
@@ -34,7 +34,7 @@ class TableController < ApplicationController
     @card1_p2 = @hand2[0][0]
     @card1_rank_p2 = @card1_p2[1]
     @card1_suit_p2 = @card1_p2[0]
-  
+
     @card2_p2 = @hand2[1][0]
     @card2_rank_p2 = @card2_p2[1]
     @card2_suit_p2 = @card2_p2[0]
@@ -88,17 +88,35 @@ class TableController < ApplicationController
   end
 
   def determine_hand
-    table = Table.new
-   h1 = table.evalHand(@card1_p1, @card2_p1, @card3_p1, @card4_p1, @card5_p1)
-   h2 = table.evalHand(@card1_p2, @card2_p2, @card3_p2, @card4_p2, @card5_p2)
-    case
-      when h1 > h2 then return 'player 1 wins'
-      when h2 > h1 then return 'player 2 wins'
-      else return 'draw'
-    end
+
+   table = Table.new
+   first = table.evalHand(@card1_p1, @card2_p1, @card3_p1, @card4_p1, @card5_p1)
+   second = table.evalHand(@card1_p2, @card2_p2, @card3_p2, @card4_p2, @card5_p2)
+
+   h1 = first[0]
+   max1 = first[1]
+   h2 = second[0]
+   max2 = second[1]
+ 
+
+    if h1 > h2
+      return 'player 1 wins with '+ table.getHandRank(h1)
+    elsif h2 > h1
+      return 'player 2 wins with ' +  table.getHandRank(h2)
+    else
+      if max1 >max2
+
+        return "player 1 wins with "+ table.getHandRank(h1) + " High Card "+max1.to_s
+      else
+
+       return "player 2 wins with "+ table.getHandRank(h2) + " High Card "+max2.to_s
 
 
-  end
+     end
+
+
+   end
+ end
 
   # GET /posts/1
   # GET /posts/1.json
@@ -108,7 +126,7 @@ class TableController < ApplicationController
   # GET /posts/new
   def new
    # @tables = Table.new
-  end
+ end
 
   # GET /posts/1/edit
   def edit
