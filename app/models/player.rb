@@ -8,7 +8,7 @@ def initialize
 	#@users = count
 	#@players = Array.new(@users,0) 
     @table = Table.new
-	@hands= Array.new(5,0){Array.new(0,0)} #...so..[[0,0],[0,0],[0,0],[0,0]] 
+	@hands= Array.new(3,0){Array.new(0,0)} #...so..[[0,0],[0,0],[0,0],[0,0]] 
 end
 
 

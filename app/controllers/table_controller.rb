@@ -45,14 +45,14 @@ class TableController < ApplicationController
     @card1_suit_t = @card1_t[0]
 
     #player1 third card which is table1 first card
-    @card3_p1 = @hand1[2][0]
-    @card3_rank_p1 = @card1_t[1]
-    @card3_suit_p1 = @card1_t[0]
+#    @card3_p1 = @hand1[2][0]
+ #   @card3_rank_p1 = @card1_t[1]
+  #  @card3_suit_p1 = @card1_t[0]
 
     #player2 third card which is table1 first card
-    @card3_p2 = @hand2[2][0]
-    @card3_rank_p2 = @card1_t[1]
-    @card3_suit_p2 = @card1_t[0]
+#    @card3_p2 = @hand2[2][0]
+ #   @card3_rank_p2 = @card1_t[1]
+  #  @card3_suit_p2 = @card1_t[0]
 
     #table1 second card
     @card2_t = @table1[1][0]
@@ -60,14 +60,14 @@ class TableController < ApplicationController
     @card2_suit_t = @card2_t[0]
 
     #player1 fourth card which is table1 second card
-    @card4_p1 = @hand1[3][0]
-    @card4_rank_p1 = @card2_t[1]
-    @card4_suit_p1 = @card2_t[0]
+#    @card4_p1 = @hand1[3][0]
+ #   @card4_rank_p1 = @card2_t[1]
+  #  @card4_suit_p1 = @card2_t[0]
 
     #player2 fourth card which is table1 second card
-    @card4_p2 = @hand2[3][0]
-    @card4_rank_p2 = @card2_t[1]
-    @card4_suit_p2 = @card2_t[0]
+ #   @card4_p2 = @hand2[3][0]
+  #  @card4_rank_p2 = @card2_t[1]
+   # @card4_suit_p2 = @card2_t[0]
 
     #table1 third card
     @card3_t = @table1[2][0]
@@ -75,23 +75,22 @@ class TableController < ApplicationController
     @card3_suit_t = @card3_t[0]
 
     #player1 fifth card which is table1 third card
-    @card5_p1 = @hand1[4][0]
-    @card5_rank_p1 = @card3_t[1]
-    @card5_suit_p1 = @card3_t[0]
+#    @card5_p1 = @hand1[4][0]
+ #   @card5_rank_p1 = @card3_t[1]
+  #  @card5_suit_p1 = @card3_t[0]
 
     #player2 fifth card which is table1 third card
-    @card5_p2 = @hand2[4][0]
-    @card5_rank_p2 = @card3_t[1]
-    @card5_suit_p2 = @card3_t[0]
+#    @card5_p2 = @hand2[4][0]
+ #   @card5_rank_p2 = @card3_t[1]
+  #  @card5_suit_p2 = @card3_t[0]
 
-    determine_hand
   end
 
   def determine_hand
 
    table = Table.new
-   first = table.evalHand(@card1_p1, @card2_p1, @card3_p1, @card4_p1, @card5_p1)
-   second = table.evalHand(@card1_p2, @card2_p2, @card3_p2, @card4_p2, @card5_p2)
+   first = table.evalHand(@card1_p1, @card2_p1, @card1_t, @card2_t, @card3_t)
+   second = table.evalHand(@card1_p2, @card2_p2, @card1_t, @card2_t, @card3_t)
 
    h1 = first[0]
    max1 = first[1]
