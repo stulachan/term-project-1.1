@@ -3,8 +3,7 @@ class TableController < ApplicationController
   # GET /table
   # GET /posts.json
  attr_reader :number_of_users, :hand1,:hand2, :table1
-  
-  
+
 #Game logic goes in this table method
   #def table
   
@@ -12,13 +11,15 @@ class TableController < ApplicationController
   #end
 
   def table
-    #@number_of_users =  2  #GET THE NUMBER OF USERS LOGGED IN HERE
-    @player = Player.new
-    @hand1  = @player.setPlayerHand
-    @hand2  = @player.setPlayerHand
+    @number_of_users =  2  #GET THE NUMBER OF USERS LOGGED IN HERE
+    @player1 = Player.new
+    @player2 = Player.new
+    @table_cards = Player.new
+    @hand1  = @player1.setPlayerHand
+    @hand2  = @player2.setPlayerHand
    # @hand3  = @player.setPlayerHand
    # @hand4  = @player.setPlayerHand
-    @table1 = @player.setPlayerHand
+    @table1 = @table_cards.setPlayerHand
 
     #player1 first 2 cards
     @card1_p1 = @hand1[0][0]
@@ -82,6 +83,19 @@ class TableController < ApplicationController
     @card5_p2 = @hand2[4][0]
     @card5_rank_p2 = @card3_t[1]
     @card5_suit_p2 = @card3_t[0]
+
+    #determine_hand
+  end
+
+  def determine_hand
+   h1 = Table.evalHand(@card1_p1, @card2_p1, @card3_p1, @card4_p1, @card5_p1)
+   h2 = Table.evalHand(@card1_p2, @card2_p2, @card3_p2, @card4_p2, @card5_p2)
+    case
+      when h1 > h2 then return 'player 1 wins'
+      when h2 > h1 then return 'player 2 wins'
+      else return 'draw'
+    end
+
 
   end
 
