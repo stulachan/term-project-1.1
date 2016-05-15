@@ -84,12 +84,13 @@ class TableController < ApplicationController
     @card5_rank_p2 = @card3_t[1]
     @card5_suit_p2 = @card3_t[0]
 
-    #determine_hand
+    determine_hand
   end
 
   def determine_hand
-   h1 = Table.evalHand(@card1_p1, @card2_p1, @card3_p1, @card4_p1, @card5_p1)
-   h2 = Table.evalHand(@card1_p2, @card2_p2, @card3_p2, @card4_p2, @card5_p2)
+    table = Table.new
+   h1 = table.evalHand(@card1_p1, @card2_p1, @card3_p1, @card4_p1, @card5_p1)
+   h2 = table.evalHand(@card1_p2, @card2_p2, @card3_p2, @card4_p2, @card5_p2)
     case
       when h1 > h2 then return 'player 1 wins'
       when h2 > h1 then return 'player 2 wins'
