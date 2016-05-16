@@ -28,7 +28,7 @@ gem 'autoprefixer-rails'
 
 #gem 'rake', '~> 11.1.2'
 
-
+gem 'unicorn'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
