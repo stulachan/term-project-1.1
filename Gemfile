@@ -27,8 +27,8 @@ gem 'autoprefixer-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'rake', '~> 11.1.2'
-gem 'puma'
+#gem 'rake', '~> 11.1.2'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -50,6 +50,10 @@ end
   gem 'devise'
   gem 'dotenv-rails'
   gem 'pusher'
+group :production do
+  gem 'puma'
   gem 'rails_12factor'
+end
+
 
 
