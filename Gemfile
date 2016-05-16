@@ -49,5 +49,6 @@ end
   gem 'devise'
   gem 'dotenv-rails'
   gem 'pusher'
+  gem 'rails_12factor'
 
 
