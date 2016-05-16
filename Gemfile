@@ -28,6 +28,7 @@ gem 'autoprefixer-rails'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'rake', '~> 11.1.2'
+gem 'puma'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
