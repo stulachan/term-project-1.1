@@ -22,9 +22,14 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
 
+  
+
+  development:
+ <<: *default
+ database: poker_development
+
 
   production:
   <<: *default
   database: poker_production
-  username: root
-  password: 
+  
