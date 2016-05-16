@@ -21,3 +21,10 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
+
+
+  production:
+  <<: *default
+  database: poker_production
+  username: poker
+  password: <%= ENV['POKER_DATABASE_PASSWORD'] %>
