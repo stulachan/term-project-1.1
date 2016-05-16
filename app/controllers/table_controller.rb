@@ -108,7 +108,7 @@ class TableController < ApplicationController
 
         highCard = "";
 
-        if max1 > 9
+        if (max1 > 9)
           highCard = picCard[max1];
           return "player 1 wins with "+ table.getHandRank(h1) + " " + highCard;
         else
@@ -119,7 +119,7 @@ class TableController < ApplicationController
 
         highCard = "";
 
-        if max2 > 9
+        if (max2 > 9)
           highCard = picCard[max2];
           return "player 1 wins with "+ table.getHandRank(h2) + " " + highCard;
         else
