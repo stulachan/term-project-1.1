@@ -26,5 +26,5 @@ default: &default
   production:
   <<: *default
   database: poker_production
-  username: poker
-  password: <%= ENV['POKER_DATABASE_PASSWORD'] %>
+  username: root
+  password: 
