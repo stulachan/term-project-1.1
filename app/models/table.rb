@@ -12,45 +12,46 @@ class Table
 					"Straight-Flush",
 					"Royal-Flush"];
 
+    # First = Clubs, Second = Diamonds, Third = Hearts, Fourth = Spades
+    # Ace is number 13
+    # 12 is King
+    # 11 is queen
+    # and so on...
+    @@cards = [[1,2,3,4,5,6,7,8,9,10,11,12,13],[1,2,3,4,5,6,7,8,9,10,11,12,13],[1,2,3,4,5,6,7,8,9,10,11,12,13],[1,2,3,4,5,6,7,8,9,10,11,12,13]];
+
 #CONSTRUCTOR is called, when we create an object
-def initialize
+    def initialize
 
-		# First = Clubs, Second = Diamonds, Third = Hearts, Fourth = Spades
-		# Ace is number 13
-		# 12 is King
-		# 11 is queen
-		# and so on...
-        #
+    end
 
-@cards = [[1,2,3,4,5,6,7,8,9,10,11,12,13],[1,2,3,4,5,6,7,8,9,10,11,12,13],[1,2,3,4,5,6,7,8,9,10,11,12,13],[1,2,3,4,5,6,7,8,9,10,11,12,13]];
-
-end
-
-	#Set one card from @cards array
-def setCard
-
-        #This card array can hold only 2 elements initialized with [0,0] 
-		card = Array.new(2,0); 
-
-		find = 0;  #find variables initialized with 0
- 
-		while find == 0
-			suit = rand(1...4);   #pick a random no between 1-4 and store it in suit var
-		
-			rank = rand(1...13);  #pick a random no between 1-13 and store it in rank var
-			card[0] = suit;   #put the suit var as first element in card array 
-
-			#card[1] = @cards[suit,rank]; #Something is wrong here!! 
-			card[1] = @cards[suit][rank]; 
-			if(card[1] != -1)
-				find == 1;
-		end
-
-		@cards[suit][rank] = -1; #if that specific suit and rank was set already, then set it to -1
-         
-		return card;
-	end
-end
+    	#Set one card from @cards array
+    def setCard
+        
+        arrayCard = Array.new(7);
+        
+        card = Array.new(2);
+        
+        find = 0;
+        
+        while find == 0
+            
+            suit = rand(1..4);
+            rank = rand(1..13);
+            
+            card[0] = suit;
+            card[1] = rank;
+            
+            if(@@cards[suit-1][rank-1] != -1)
+                
+                find = 1; 
+            end
+            
+        end
+        
+        @@cards[card[0]-1][card[1]-1] = -1;
+        
+        return card;
+    end
 
 
 =begin

@@ -91,11 +91,12 @@ class TableController < ApplicationController
    table = Table.new
    first = table.evalHand(@card1_p1, @card2_p1, @card1_t, @card2_t, @card3_t)
    second = table.evalHand(@card1_p2, @card2_p2, @card1_t, @card2_t, @card3_t)
+   picCard = ["","","","","","","","","","", "","Jack","Quin","King","Ace"];
 
    h1 = first[0]
-   max1 = first[1]
+   max1 = first[1] + 1
    h2 = second[0]
-   max2 = second[1]
+   max2 = second[1] + 1
  
 
     if h1 > h2
@@ -105,16 +106,27 @@ class TableController < ApplicationController
     else
       if max1 >max2
 
-        return "player 1 wins with "+ table.getHandRank(h1) + " High Card "+max1.to_s
+        highCard = "";
+
+        if max1 > 9
+          highCard = picCard[max1];
+          return "player 1 wins with "+ table.getHandRank(h1) + " " + highCard;
+        else
+          return "player 1 wins with "+ table.getHandRank(h1) + " " + max1.to_s
+        end
+        
       else
 
-       return "player 2 wins with "+ table.getHandRank(h2) + " High Card "+max2.to_s
+        highCard = "";
 
-
-     end
-
-
-   end
+        if max2 > 9
+          highCard = picCard[max2];
+          return "player 1 wins with "+ table.getHandRank(h2) + " " + highCard;
+        else
+          return "player 1 wins with "+ table.getHandRank(h2) + " " + max2.to_s;
+        end
+      end
+    end
  end
 
   # GET /posts/1
