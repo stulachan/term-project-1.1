@@ -50,7 +50,7 @@ end
   gem 'dotenv-rails'
   gem 'pusher'
 
-  gem 'puma'
+  #gem 'puma'
   gem 'rails_12factor'
 
 
