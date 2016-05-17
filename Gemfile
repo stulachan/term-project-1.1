@@ -1,9 +1,12 @@
 source 'https://rubygems.org'
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 # Use mysql as the database for Active Record
 gem 'pg'
+gem 'mysql2', '>= 0.3.13', '< 0.5'
+#end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -26,9 +29,6 @@ gem 'autoprefixer-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-#gem 'rake', '~> 11.1.2'
-
-gem 'unicorn'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -43,19 +43,10 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-end
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'devise'
   gem 'dotenv-rails'
   gem 'pusher'
-
-  #gem 'puma'
-  gem 'rails_12factor'
-
-
-ruby                            '2.1.5'
-
-
-
-
+end

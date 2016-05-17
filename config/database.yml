@@ -1,10 +1,4 @@
-
-  
-
-
-
-
-  # MySQL.  Versions 5.0+ are recommended.
+# MySQL.  Versions 5.0+ are recommended.
 #
 # Install the MYSQL driver
 #   gem install mysql2
@@ -14,28 +8,28 @@
 #
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
-# mysql2
-# postgresql
+#
 default: &default
-  adapter:  postgresql
+  adapter: mysql2
   encoding: utf8
   pool: 5
-  #username: root
-  #password: fish2016
-  #socket: /var/run/mysqld/mysqld.sock
+  username: root
+  password: hamoon
+  host: localhost
+  socket: /var/run/mysqld/mysqld.sock
 
 development:
- <<: *default
- database: poker_development
+  <<: *default
+  database: poker_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: poker_test
+  database: poker_667
 
-  # As with config/secrets.yml, you never want to store sensitive information,
+# As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
 #
@@ -51,13 +45,11 @@ test:
 #
 # You can use this database configuration with:
 #
-production:
-url: <%= ENV['DATABASE_URL'] %>
+#   production:
+#     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
   <<: *default
   database: poker_production
   username: poker
   password: <%= ENV['POKER_DATABASE_PASSWORD'] %>
-
-
